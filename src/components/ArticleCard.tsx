@@ -16,13 +16,13 @@ export function ArticleCard({ article }: ArticleCardProps) {
   const score = Math.max(0, Math.min(100, article.relevanceScore ?? 0));
 
   return (
-    <article className="group relative flex h-full flex-col border-t border-[var(--line)] py-6 transition-colors first:border-t-0 sm:first:border-t sm:hover:border-[var(--ink)]">
-      <div className="mb-5 flex items-center justify-between gap-4 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
-        <span className="text-[var(--accent)]">{article.source.name}</span>
+    <article className="group relative flex h-full flex-col border-t border-[var(--line)] py-7 transition-colors first:border-t-0 sm:first:border-t sm:hover:border-[var(--accent)]">
+      <div className="mb-5 flex items-center justify-between gap-4 text-xs font-medium tracking-[-0.01em] text-[var(--muted)]">
+        <span className="font-semibold text-[var(--ink)]">{article.source.name}</span>
         <span>{formatPublishedAt(article.publishedAt)}</span>
       </div>
 
-      <h2 className="max-w-2xl font-serif text-[clamp(1.45rem,2.4vw,2.1rem)] leading-[1.08] tracking-[-0.02em] text-[var(--ink)]">
+      <h2 className="max-w-2xl text-[clamp(1.45rem,2.4vw,2.1rem)] font-semibold leading-[1.08] tracking-[-0.045em] text-[var(--ink)]">
         {article.simplifiedTitle || article.title}
       </h2>
 
@@ -33,13 +33,13 @@ export function ArticleCard({ article }: ArticleCardProps) {
       )}
 
       <div className="mt-6 flex items-center justify-between gap-4">
-        <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--muted)]">
-          <span>{article.source.category}</span>
+        <div className="flex items-center gap-3 text-xs font-medium text-[var(--muted)]">
+          <span className="rounded-full bg-white/80 px-3 py-1.5">{article.source.category}</span>
           <span aria-hidden="true" className="h-1 w-1 rounded-full bg-[var(--accent)]" />
           <span className="inline-flex items-center gap-2">
             <span
               aria-label={`Relevance score ${score} out of 100`}
-              className="h-1.5 w-16 overflow-hidden rounded-full bg-[var(--line)]"
+              className="h-1.5 w-12 overflow-hidden rounded-full bg-[var(--line)]"
             >
               <span
                 className="block h-full bg-[var(--accent)]"
@@ -53,7 +53,7 @@ export function ArticleCard({ article }: ArticleCardProps) {
           href={article.url}
           target="_blank"
           rel="noreferrer"
-          className="text-sm font-semibold text-[var(--ink)] underline decoration-[var(--accent)] decoration-2 underline-offset-4 transition-colors hover:text-[var(--accent)]"
+          className="text-sm font-medium text-[var(--ink)] transition-colors hover:text-[var(--accent)]"
         >
           Read article <span aria-hidden="true">&#8594;</span>
         </a>
