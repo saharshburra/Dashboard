@@ -19,6 +19,13 @@
         "models": {
           "Article": {
             "fields": {
+              "description": {
+                "nullable": true,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
               "fetchedAt": {
                 "nullable": false,
                 "type": {
@@ -33,10 +40,31 @@
                   "kind": "scalar"
                 }
               },
+              "processedAt": {
+                "nullable": true,
+                "type": {
+                  "codecId": "pg/timestamptz-string@1",
+                  "kind": "scalar"
+                }
+              },
               "publishedAt": {
                 "nullable": false,
                 "type": {
                   "codecId": "pg/timestamptz-string@1",
+                  "kind": "scalar"
+                }
+              },
+              "relevanceScore": {
+                "nullable": true,
+                "type": {
+                  "codecId": "pg/float8@1",
+                  "kind": "scalar"
+                }
+              },
+              "simplifiedTitle": {
+                "nullable": true,
+                "type": {
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               },
@@ -67,6 +95,13 @@
                   "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
+              },
+              "worthReading": {
+                "nullable": true,
+                "type": {
+                  "codecId": "pg/bool@1",
+                  "kind": "scalar"
+                }
               }
             },
             "relations": {
@@ -89,14 +124,26 @@
             },
             "storage": {
               "fields": {
+                "description": {
+                  "column": "description"
+                },
                 "fetchedAt": {
                   "column": "fetchedAt"
                 },
                 "id": {
                   "column": "id"
                 },
+                "processedAt": {
+                  "column": "processedAt"
+                },
                 "publishedAt": {
                   "column": "publishedAt"
+                },
+                "relevanceScore": {
+                  "column": "relevanceScore"
+                },
+                "simplifiedTitle": {
+                  "column": "simplifiedTitle"
                 },
                 "sourceId": {
                   "column": "sourceId"
@@ -109,6 +156,9 @@
                 },
                 "url": {
                   "column": "url"
+                },
+                "worthReading": {
+                  "column": "worthReading"
                 }
               },
               "namespaceId": "public",
@@ -203,6 +253,11 @@
           "table": {
             "article": {
               "columns": {
+                "description": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": true
+                },
                 "fetchedAt": {
                   "codecId": "pg/timestamptz-string@1",
                   "default": {
@@ -221,10 +276,25 @@
                   "nativeType": "int4",
                   "nullable": false
                 },
+                "processedAt": {
+                  "codecId": "pg/timestamptz-string@1",
+                  "nativeType": "timestamptz",
+                  "nullable": true
+                },
                 "publishedAt": {
                   "codecId": "pg/timestamptz-string@1",
                   "nativeType": "timestamptz",
                   "nullable": false
+                },
+                "relevanceScore": {
+                  "codecId": "pg/float8@1",
+                  "nativeType": "float8",
+                  "nullable": true
+                },
+                "simplifiedTitle": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": true
                 },
                 "sourceId": {
                   "codecId": "pg/int4@1",
@@ -245,6 +315,11 @@
                   "codecId": "pg/text@1",
                   "nativeType": "text",
                   "nullable": false
+                },
+                "worthReading": {
+                  "codecId": "pg/bool@1",
+                  "nativeType": "bool",
+                  "nullable": true
                 }
               },
               "foreignKeys": [
@@ -341,7 +416,7 @@
         "kind": "postgres-schema"
       }
     },
-    "storageHash": "26c37c179d0b6e8f56b3e12b6199cead4fd212c69dcbde44a6f453a3f8640051"
+    "storageHash": "1143e9539330a09c6fa4b700b314b37a97fe2b26529555872f3b9d016ef0ad99"
   },
   "capabilities": {
     "postgres": {

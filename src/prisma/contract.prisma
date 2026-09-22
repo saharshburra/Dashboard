@@ -13,8 +13,13 @@ model Article {
   id        Int      @id @default(autoincrement())
   title     String
   url      String   @unique
+  description String?
+  simplifiedTitle String?
   summary   String?
+  worthReading Boolean?
+  relevanceScore Float?
   publishedAt TimestamptzString
+  processedAt TimestamptzString?
   fetchedAt   TimestamptzString @default(now())
   source    Source   @relation(fields: [sourceId], references: [id])
   sourceId  Int
