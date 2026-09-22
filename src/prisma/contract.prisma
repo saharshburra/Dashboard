@@ -1,0 +1,21 @@
+// use prisma-8
+
+model Source {
+  id        Int      @id @default(autoincrement())
+  websiteUrl      String   @unique
+  category String
+  name     String
+  rssUrl     String
+  articles   Article[]
+}
+
+model Article {
+  id        Int      @id @default(autoincrement())
+  title     String
+  url      String   @unique
+  summary   String?
+  publishedAt TimestamptzString
+  fetchedAt   TimestamptzString @default(now())
+  source    Source   @relation(fields: [sourceId], references: [id])
+  sourceId  Int
+}
