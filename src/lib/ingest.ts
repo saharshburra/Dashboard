@@ -1,5 +1,6 @@
 import { db } from '@/prisma/db';
 import { fetchFeed } from '@/lib/rss';
+import { isRelevant } from '@/lib/filter';
 
 export async function ingestSources() {
 	const sources = await db.orm.public.Source.all();
@@ -11,7 +12,16 @@ export async function ingestSources() {
 			if (!article.title || !article.url || !article.publishedAt) {
 				continue;
 			}
+        
+            const relevant = isRelevant(article, source.category);
+            console.log(
+            `[${source.name}] ${relevant ? 'KEEP' : 'SKIP'}: ${article.title}`,
+            );
 
+            if (!relevant) {
+            continue;
+            }
+            
 			const existingArticle = await db.orm.public.Article
 				.where({ url: article.url })
 				.first();

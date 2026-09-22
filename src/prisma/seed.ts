@@ -1,6 +1,7 @@
 import { db } from './db.ts';
 
 const sources = [
+  // India
   {
     name: 'Indian Express',
     category: 'India',
@@ -19,12 +20,42 @@ const sources = [
     websiteUrl: 'https://www.ndtv.com',
     rssUrl: 'https://feeds.feedburner.com/ndtvnews-top-stories',
   },
+
+  // US
   {
     name: 'BBC News',
-    category: 'World',
+    category: 'US',
     websiteUrl: 'https://www.bbc.com/news',
-    rssUrl: 'https://feeds.bbci.co.uk/news/rss.xml',
-  }
+    rssUrl: 'https://feeds.bbci.co.uk/news/topics/cx1m7zg01xyt/rss.xml',
+  },
+
+  // AI/ML
+  {
+    name: 'Ars Technica AI',
+    category: 'AI/ML',
+    websiteUrl: 'https://arstechnica.com',
+    rssUrl: 'https://arstechnica.com/ai/feed/',
+  },
+  {
+    name: 'TechCrunch AI',
+    category: 'AI/ML',
+    websiteUrl: 'https://techcrunch.com',
+    rssUrl: 'https://techcrunch.com/category/artificial-intelligence/feed/',
+  },
+
+  // Cybersecurity
+  {
+    name: 'BleepingComputer',
+    category: 'Cybersecurity',
+    websiteUrl: 'https://www.bleepingcomputer.com',
+    rssUrl: 'https://www.bleepingcomputer.com/feed/',
+  },
+  {
+    name: 'Krebs on Security',
+    category: 'Cybersecurity',
+    websiteUrl: 'https://krebsonsecurity.com',
+    rssUrl: 'https://krebsonsecurity.com/feed/',
+  },
 ];
 
 export async function seed() {

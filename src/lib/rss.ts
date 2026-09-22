@@ -12,8 +12,9 @@ export async function fetchFeed(url: string) {
         Boolean(item.isoDate?.trim()),
     )
     .map((item) => ({
-        title: item.title,
-        url: item.link,
-        publishedAt: item.isoDate,
+      title: item.title,
+      description: item.description,
+      url: item.link,
+      publishedAt: item.isoDate,
     }));
 }
