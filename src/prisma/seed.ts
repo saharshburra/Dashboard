@@ -21,12 +21,55 @@ const sources = [
     rssUrl: 'https://feeds.feedburner.com/ndtvnews-top-stories',
   },
 
+  {
+    name: 'Times of India',
+    category: 'India',
+    websiteUrl: 'https://timesofindia.indiatimes.com',
+    rssUrl: 'https://timesofindia.indiatimes.com/rssfeedstopstories.cms',
+  },
+
   // US
   {
-    name: 'BBC News',
+    name: 'NPR',
+    category: 'US',
+    websiteUrl: 'https://www.npr.org',
+    rssUrl: 'https://feeds.npr.org/1001/rss.xml',
+  },
+  {
+    name: 'CNN',
+    category: 'US',
+    websiteUrl: 'https://www.cnn.com',
+    rssUrl: 'http://rss.cnn.com/rss/edition.rss',
+  },
+  {
+    name: 'BBC US & Canada',
     category: 'US',
     websiteUrl: 'https://www.bbc.com/news',
-    rssUrl: 'https://feeds.bbci.co.uk/news/topics/cx1m7zg01xyt/rss.xml',
+    rssUrl: 'https://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml',
+  },
+  {
+    name: 'The New York Times',
+    category: 'US',
+    websiteUrl: 'https://www.nytimes.com',
+    rssUrl: 'https://rss.nytimes.com/services/xml/rss/nyt/US.xml',
+  },
+  {
+    name: 'The Washington Post',
+    category: 'US',
+    websiteUrl: 'https://www.washingtonpost.com',
+    rssUrl: 'https://feeds.washingtonpost.com/rss/national',
+  },
+  {
+    name: 'The Wall Street Journal',
+    category: 'US',
+    websiteUrl: 'https://www.wsj.com',
+    rssUrl: 'https://feeds.a.dj.com/rss/RSSWorldNews.xml',
+  },
+  {
+    name: 'Bloomberg Markets',
+    category: 'US',
+    websiteUrl: 'https://www.bloomberg.com',
+    rssUrl: 'https://feeds.bloomberg.com/markets/news.rss',
   },
 
   // AI/ML
@@ -42,6 +85,12 @@ const sources = [
     websiteUrl: 'https://techcrunch.com',
     rssUrl: 'https://techcrunch.com/category/artificial-intelligence/feed/',
   },
+  {
+    name: 'MIT Technology Review',
+    category: 'AI/ML',
+    websiteUrl: 'https://www.technologyreview.com',
+    rssUrl: 'https://www.technologyreview.com/feed/',
+  },
 
   // Cybersecurity
   {
@@ -55,6 +104,18 @@ const sources = [
     category: 'Cybersecurity',
     websiteUrl: 'https://krebsonsecurity.com',
     rssUrl: 'https://krebsonsecurity.com/feed/',
+  },
+  {
+    name: 'The Hacker News',
+    category: 'Cybersecurity',
+    websiteUrl: 'https://thehackernews.com',
+    rssUrl: 'https://feeds.feedburner.com/TheHackersNews',
+  },
+  {
+    name: 'SecurityWeek',
+    category: 'Cybersecurity',
+    websiteUrl: 'https://www.securityweek.com',
+    rssUrl: 'https://feeds.feedburner.com/securityweek',
   },
 ];
 

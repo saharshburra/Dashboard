@@ -1,5 +1,7 @@
 import { db } from '@/prisma/db';
 
+const categories = ['India', 'US', 'AI/ML', 'Cybersecurity'] as const;
+
 export async function GET() {
   try {
     const articles = await db.orm.public.Article
@@ -21,7 +23,6 @@ export async function GET() {
           new Date(first.publishedAt).getTime()
         );
       })
-      .slice(0, 50)
       .map((article) => ({
         id: article.id,
         title: article.title,
@@ -41,7 +42,16 @@ export async function GET() {
         },
       }));
 
-    return Response.json({ articles: curatedArticles });
+    const articlesByCategory = Object.fromEntries(
+      categories.map((category) => [
+        category,
+        curatedArticles
+          .filter((article) => article.source.category === category)
+          .slice(0, 10),
+      ]),
+    ) as Record<(typeof categories)[number], typeof curatedArticles>;
+
+    return Response.json({ articles: articlesByCategory });
   } catch (error) {
     console.error('Failed to load articles:', error);
 

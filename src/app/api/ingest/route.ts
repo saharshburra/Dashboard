@@ -2,8 +2,8 @@ import { ingestSources } from '@/lib/ingest';
 
 export async function POST() {
     try {
-        await ingestSources();
-        return Response.json({ success: true });
+        const result = await ingestSources();
+        return Response.json({ success: true, ...result });
     } catch (error) {
         console.error('Ingestion failed:', error);
         return Response.json(

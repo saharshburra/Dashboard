@@ -63,6 +63,10 @@ Given the article title and description:
 2. Summarize the article in 2-3 sentences.
    - Use ONLY information present in the title and description.
    - Do not invent or infer facts.
+   - Do not add causes, outcomes, capabilities, motives, locations, dates,
+     numbers, or actors that are not explicitly stated.
+   - If the source text is brief, write a brief summary instead of filling in
+     missing context.
 
 3. Decide whether the article is worth reading for this audience.
 

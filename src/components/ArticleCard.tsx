@@ -13,6 +13,8 @@ function formatPublishedAt(value: string) {
 }
 
 export function ArticleCard({ article }: ArticleCardProps) {
+  const score = Math.max(0, Math.min(100, article.relevanceScore ?? 0));
+
   return (
     <article className="group relative flex h-full flex-col border-t border-[var(--line)] py-6 transition-colors first:border-t-0 sm:first:border-t sm:hover:border-[var(--ink)]">
       <div className="mb-5 flex items-center justify-between gap-4 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
@@ -34,7 +36,18 @@ export function ArticleCard({ article }: ArticleCardProps) {
         <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--muted)]">
           <span>{article.source.category}</span>
           <span aria-hidden="true" className="h-1 w-1 rounded-full bg-[var(--accent)]" />
-          <span>Score {article.relevanceScore ?? 0}</span>
+          <span className="inline-flex items-center gap-2">
+            <span
+              aria-label={`Relevance score ${score} out of 100`}
+              className="h-1.5 w-16 overflow-hidden rounded-full bg-[var(--line)]"
+            >
+              <span
+                className="block h-full bg-[var(--accent)]"
+                style={{ width: `${score}%` }}
+              />
+            </span>
+            <span>Score {score}</span>
+          </span>
         </div>
         <a
           href={article.url}

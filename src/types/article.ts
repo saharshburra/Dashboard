@@ -18,5 +18,5 @@ export type Article = {
 };
 
 export type ArticlesResponse = {
-  articles: Article[];
+  articles: Record<Article['source']['category'], Article[]>;
 };
